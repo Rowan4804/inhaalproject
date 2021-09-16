@@ -19,14 +19,14 @@
 <br/>
 <div class="icon_container">
     <input type="submit" class="icon" id="sumbit"
-    name="submit" value=&rarr;" />
+    name="submit" value="&rarr;" />
 </div>
 <a href="../index.php?page=inloggen">Terug</a>
 </form>
 </div>
 
 <?php
-if(isset($_POST["sumbit"])) {
+if(isset($_POST["submit"])) {
     $melding = "";
     $email = htmlspecialchars($_POST['e-mail']);
 
@@ -61,7 +61,7 @@ if(isset($_POST["sumbit"])) {
     $onderwerp = "Wachtwoord resetten";
     $bericht = "<p>Als je je wachtwoord wilt resetten klik <a href=".$url.">hier</a></p>";
     try {
-        mailen($email, 'Klant, $onderwerp, $bericht');
+        mailen($email, "Klant", $onderwerp, $bericht);
         $melding = 'Open je mail om verder te gaan.';
     } catch(Exception $e){
         $melding = 'Kon geen mail versturen - ' + $mail->ErrorInfo;

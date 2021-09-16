@@ -28,8 +28,9 @@
 
 <?php
 if(isset($_POST["submit"])) {
-if(isset($_GET["token"])) && (isset($_GET["timestamp"])){
+if(isset($_GET["token"]) && isset($_GET["timestamp"])){
     $token = $_GET["token"];
+    $timestamp1 = $_GET["timestamp"];
     $melding = "";
     //zoek in de database voor e-mail en token uit de link
     include("../DBconfig.php");
@@ -39,18 +40,18 @@ if(isset($_GET["token"])) && (isset($_GET["timestamp"])){
     try {
         $sql = "SELECT * FROM klant WHERE email = ? AND token = ?";
         $stmt = $verbinding->prepare($sql);
-        $stmt = $execute(array($email,$token));
+        $stmt->$execute(array($email,$token));
         $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
         //hier controleer ik of de link verlopen is
         if($stmt) {
             $timestamp2 = new DateTime("now");
             $timestamp2 = $timestamp2->getTimestamp();
-            $dif = $timestamp2 - $timestamp1
+            $dif = $timestamp2 - $timestamp1;
         //als link geldig is slaan we nieuw wachtwoord op
             if(($timestamp2 - $timestamp1) < 43200){
                 $query = "UPDATE klant SET 'wachtwoord' = ?
                 WHERE 'email' = ?";
-                $stmt = $verbinding->prepare($query);
+                $stmt = $verbinding->prepare(query);
                 $stmt = $stmt->execute(array($wachtwoordHash, $email));
                 if($stmt) {
                     echo "<script>alert('Uw wachtwoord is gereset.');
@@ -62,8 +63,8 @@ if(isset($_GET["token"])) && (isset($_GET["timestamp"])){
             location.href='../index.php';</script>";
         }
     }
-    }catch(PDOException $e) {
-        echo $e->getMessage();
+    catch(PDOException $e) {
+    echo $e->getMessage();
     }
 }
 }

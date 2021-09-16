@@ -8,7 +8,7 @@ require 'PHPMailer-master/src/Exception.php';
 function mailen($ontvangerStraat, $ontvangerNaam, $onderwerp, $bericht){
     $mail = new PHPMailer();
 
-    //verbinding maken met php
+    //verbinding maken met gmail
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = "ssl";
@@ -21,13 +21,13 @@ function mailen($ontvangerStraat, $ontvangerNaam, $onderwerp, $bericht){
 
     //email opstellen
     $mail->isHTML(true);
-    $mail->SetFrom("rowanweichungchangschotanus@gmail.com", "Naam");
+    $mail->SetFrom("rowanweichungchangschotanus@gmail.com", "Rowan");
     $mail->Subject = $onderwerp;
 
     $mail->Charset = 'UTF-8';
     $bericht = "<body style=\"font-family: Verdana, Verdana,
                 Geneva, sans-serif; font-size: 14px; color: #000;\">".
-    $bericht = "</body></html>";
+    $bericht . "</body></html>";
     $mail->AddAddress($ontvangerStraat, $ontvangerNaam);
     $mail->Body = $bericht;
 
@@ -37,5 +37,5 @@ function mailen($ontvangerStraat, $ontvangerNaam, $onderwerp, $bericht){
     }else{
         echo"<script>alert('Kon geen mail versturen');</script>";
     }
-    }
+}
 ?>

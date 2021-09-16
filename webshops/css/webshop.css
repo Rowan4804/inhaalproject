@@ -100,3 +100,37 @@ input {
 input:hover {
   background: #d8f9b6;
 }
+form > .aantal {
+  width: 30px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px gray;
+}
+#winkelmandje_knop {
+  display: none;
+}
+#winkelmandje_knop + label {
+  font-size: 3.5rem;
+}
+#winkelmandje {
+  text-align: center;
+  z-index: 3;
+  position: fixed;
+  bottom: 40%;
+  right: 0;
+  left: 0;
+  height: 20%;
+  visibility: hidden;
+  width: 100%;
+  background-color: #c2f98e;
+  border-radius: 5%;
+  opacity: 0.9;
+  filter: alpha(opacity=9);
+}
+#rijen {
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}

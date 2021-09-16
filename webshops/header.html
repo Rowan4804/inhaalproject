@@ -21,11 +21,11 @@
     </div>
     <?php
     if(isset($_SESSION["ID"]) &&
-    $_SESSION["STATUS"] == "ACTIEF")    {
-        if($_SESSION["ROL"]==0) {
+    $_SESSION["STATUS"] == "ACTIEF")  {
+        if($_SESSION["ROL"]==0){
             ?>
             <div class="user">
-                <p id="user">Gebruiker:
+                <p id="user">Gebruiker;
                 <?php echo $S_SESSION["USER_NAAM"]; ?></p>
             </div>
             <div class="nav">
