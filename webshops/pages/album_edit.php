@@ -5,7 +5,7 @@ if(!isset($_SESSION["ID"])&&($_SESSION["STATUS"]!="ACTIEF")){
     location.href='../index.php';
     </script>";
 }
-$sql = "SELECT * FROM album WHERE ID= ?";
+$sql = "SELECT * FROM album WHERE ID = ?";
 $stmt = $verbinding->prepare($sql);
 $stmt->execute(array($_GET['id']));
 $albums = $stmt->fetchAll (PDO::FETCH_ASSOC);
@@ -17,7 +17,7 @@ foreach($albums as $album) {
     method="POST">
     <p id="page_titel">Edit album</p>
     <input type="hidden" name="id" id="id"
-    value="</?php echo $album['ID']; ?>" />
+    value="<?php echo $album['ID']; ?>" />
     <label>Titel:</label>
     <input type="text" name="titel" id="titel"
     value="<?php echo $album['titel']; ?>" />
@@ -32,7 +32,8 @@ foreach($albums as $album) {
     value="<?php echo $album['prijs']; ?>" />
 <br>
 <div class="icon_container">
-    <input type="submit" value="&rarr;" />
+    <input type="submit" class="icon" id="submit"
+    name="submit" value="&rarr;" />
 </div>
 <a href="index.php?page=albums">Terug</a>
 </form>

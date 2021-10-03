@@ -10,16 +10,16 @@ if(isset($_POST["submit"])) {
     $melding = "";
     $titel = htmlspecialchars($_POST['titel']);
     $artiest = htmlspecialchars($_POST['artiest']);
-    $genre = htmlspecialchars($POST['genre']);
-    $prijs = htmlspecialchars($POST['prijs']);
-    $voorraad = htmlspecialchars($POST['voorraad']);
-    $cover = htmlspecialchars($POST['cover']);
+    $genre = htmlspecialchars($_POST['genre']);
+    $prijs = htmlspecialchars($_POST['prijs']);
+    $voorraad = htmlspecialchars($_POST['voorraad']);
+    $cover = htmlspecialchars($_POST['cover']);
 
     $sql = "INSERT INTO album (ID, titel, artiest, genre, prijs, voorraad, cover) values (?,?,?,?,?,?,?)";
     $stmt = $verbinding->prepare($sql);
     try{
         $stmt->execute(array(
-            NULL
+            NULL,
             $titel,
             $artiest,
             $genre,

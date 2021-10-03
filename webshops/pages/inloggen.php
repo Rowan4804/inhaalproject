@@ -13,7 +13,6 @@
 <?php
 if(isset($_POST["submit"])) {
     $melding = "";
-    echo "paard";
     $email = htmlspecialchars($_POST["e-mail"]);
     $wachtwoord = htmlspecialchars($_POST["wachtwoord"]);
     try {

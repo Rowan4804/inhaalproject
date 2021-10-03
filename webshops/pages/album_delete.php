@@ -5,11 +5,11 @@ if(!isset($_SESSION["ID"])&&($_SESSION["STATUS"]!="ACTIEF")){
 }
 $sql = "DELETE FROM album WHERE ID = ?";
 $stmt = $verbinding->prepare($sql);
-try{
+try {
     $stmt->execute(array($_GET['id']));
     echo "<script>alert('Album is verwijderd.');
-    location.href='index.php?page=albums';</script>;
-}"catch(PDOException $e) {
+    location.href='index.php?page=albums';</script>";
+}catch(PDOException $e) {
     echo $e->getMessage();
 }
 ?>

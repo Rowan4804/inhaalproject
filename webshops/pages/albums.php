@@ -1,13 +1,13 @@
 <?php
 if(!isset($_SESSION["ID"])&&($_SESSION["STATUS"]!="ACTIEF")){
-    echo <script>
+    echo "<script>
     alert('U heeft geen toegang tot deze pagina.');
     location.href='../index.php';
     </script>";
 }
 ?>
 <div class="content">
-<table id='table' border="0" cellspacing="3">
+<table id='tabel' border="0" cellspacing="3">
     <caption>
     <h3>Edit albums</h3>
     </caption>
@@ -23,11 +23,12 @@ if(!isset($_SESSION["ID"])&&($_SESSION["STATUS"]!="ACTIEF")){
     <?php
     $sql = "SELECT * FROM album";
     $stmt = $verbinding->prepare($sql);
+    $stmt->execute(array());
     $albums = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $bgcolor = true;
     foreach($albums as $album) {
         $id = $album['ID'];
-        echo (bgcolor ? "<tr bgcolor=#ccc>" : "<tr>");
+        echo ($bgcolor ? "<tr bgcolor=#ccc>" : "<tr>");
         echo
         "<td>".$album['titel']."</td>".
         "<td>".$album['artiest']."</td>".

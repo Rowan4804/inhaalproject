@@ -6,20 +6,12 @@
     </head>
     <body>
         <div class="content">
-            <form name="resetformulier" method="POST"
-            enctype="multipart/form-data" action=""
-            onsubmit="
-            if(document.resetformulier.wachtwoord1 !==
-            document.resetformulier.wachtwoord2){
-            alert('Wachtwoorden moeten gelijk zijn'); return false;">
+            <form name="resetformulier" method="POST" enctype="multipart/form-data" action="" onsubmit="if(document.resetformulier.wachtwoord1 !== document.resetformulier.wachtwoord2){alert('Wachtwoorden moeten gelijk zijn'); return false;">
             <p id="page_titel">Wachtwoord resetten</P>
-            <input required type="password" name="wachtwoord1"
-            placeholder="Nieuw wachtwoord"/><br>
-            <input required typwe="password" name="wachtwoord2"
-            placeholder="Herhaal wachtwoord" /> <br>
+            <input required type="password" name="wachtwoord1" placeholder="Nieuw wachtwoord"/><br>
+            <input required typwe="password" name="wachtwoord2" placeholder="Herhaal wachtwoord" /> <br>
             <div class="icon_container">
-                <input type="submit" class="icon" id="submit"
-                name="submit" value="&rarr;" />
+                <input type="submit" class="icon" id="submit" name="submit" value="&rarr;" />
             </div>
             </form
         </div>

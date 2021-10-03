@@ -8,6 +8,6 @@ if(isset($_GET["page"])) {
     $page = "inloggen";
 }
 if ($page) {
-    include ( "pages/" . $page . ".php");
+    include ("pages/" . $page . ".php");
 }
 ?>
